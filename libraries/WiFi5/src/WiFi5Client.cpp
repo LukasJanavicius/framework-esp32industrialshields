@@ -1,0 +1,123 @@
+#include "WiFi5Client.h"
+
+#include "utility/constants.h"
+#include "utility/ism43340.h"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+WiFi5Client::WiFi5Client(): socket(-1), connectionStatus(WL_DISCONNECTED) {
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+WiFi5Client::WiFi5Client(int socket): socket(socket), connectionStatus(WL_CONNECTED) {
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+int WiFi5Client::connect(IPAddress ip, uint16_t port) {
+	if (socket >= 0) {
+		// Already connected
+		return 0;
+	}
+
+	int availableSocket = ISM43340.findAvailableSocket();
+	if (availableSocket < 0) {
+		// Free socket not found
+		return 0;
+	}
+
+	if (!ISM43340.connect(availableSocket, ip, port)) {
+		// Impossible to connect to server
+		return 0;
+	}
+
+	socket = availableSocket;
+	connectionStatus = WL_CONNECTED;
+
+	return 1;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+int WiFi5Client::connect(const char *host, uint16_t port) {
+	IPAddress ipAddress;
+	if (!ISM43340.hostByName(host, ipAddress)) {
+		return 0;
+	}
+	return connect(ipAddress, port);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+size_t WiFi5Client::write(uint8_t byte) {
+	return write(&byte, 1);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+size_t WiFi5Client::write(const uint8_t *buf, size_t size) {
+	if (!connected()) {
+		return 0;
+	}
+
+	return ISM43340.write(socket, buf, size);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+int WiFi5Client::available() {
+	// It is not possible to determine if there is available data in the module
+	// Asume it always have data when connected
+	return connected() > 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+int WiFi5Client::read() {
+	uint8_t data;
+	if (read(&data, 1) != 1) {
+		return -1;
+	}
+	return data;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+int WiFi5Client::read(uint8_t *buf, size_t size) {
+	if (!connected()) {
+		return -1;
+	}
+
+	return ISM43340.read(socket, buf, size);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+int WiFi5Client::peek() {
+	// It is not possible to get a byte from the buffer without reading it
+	return -1;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+void WiFi5Client::flush() {
+	// Nothing to do
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+void WiFi5Client::stop() {
+	if (connected()) {
+		ISM43340.disconnect(socket);
+	}
+
+	socket = -1;
+	connectionStatus = WL_DISCONNECTED;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+uint8_t WiFi5Client::connected() {
+	if (socket < 0) {
+		return 0;
+	}
+
+	if (!ISM43340.isConnected(socket)) {
+		return 0;
+	}
+
+	return connectionStatus == WL_CONNECTED ? 1 : 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+WiFi5Client::operator bool() {
+	return available() > 0;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "framework-esp32industrialshields",
+  "version": "1.0",
+  "description": "Arduino Wiring-based Framework for the Industrialshields Espressif ESP32 series of PLC",
+  "keywords": [
+    "framework",
+    "arduino",
+    "espressif",
+    "esp32"
+  ],
+  "license": "LGPL-2.1-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/espressif/arduino-esp32"
+  }
+}

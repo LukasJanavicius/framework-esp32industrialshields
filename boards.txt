@@ -1,0 +1,195 @@
+menu.cpu=Model
+menu.version=Version
+menu.module1=Extension module 1
+menu.module2=Extension module 2
+
+############################################
+###### 10iosplc ############################
+############################################
+
+plc10ios.name=10 IOS PLC Family
+plc10ios.build.tarch=xtensa
+plc10ios.build.bootloader_addr=0x1000
+plc10ios.build.target=esp32
+plc10ios.build.mcu=esp32
+plc10ios.build.core=industrialshields
+plc10ios.build.board=ESP32_DEV
+plc10ios.build.f_cpu=240000000L
+plc10ios.build.flash_size=4MB
+plc10ios.build.flash_freq=80m
+plc10ios.build.flash_mode=dio
+plc10ios.build.boot=dio
+plc10ios.build.partitions=default
+plc10ios.build.defines=
+plc10ios.build.loop_core=
+plc10ios.build.event_core=
+plc10ios.build.defines=
+plc10ios.build.code_debug=0
+plc10ios.build.variant=10iosplc
+plc10ios.upload.tool=esptool_py
+plc10ios.upload.maximum_size=1310720
+plc10ios.upload.maximum_data_size=327680
+plc10ios.upload.wait_for_upload_port=true
+plc10ios.upload.speed=921600
+plc10ios.upload.flags=
+plc10ios.upload.extra_flags=
+plc10ios.serial.disableDTR=true
+plc10ios.serial.disableRTS=true
+
+######### 10 IOS PLC DIGITAL #######################
+
+plc10ios.menu.cpu.plc10ios=10 IOS PLC Digital
+plc10ios.menu.cpu.plc10ios.build.extra_flags=-DPLC10IOS -DPLC10IOS_DIGITAL
+
+######### 10 IOS PLC RELAY #####################
+
+plc10ios.menu.cpu.plc10iosr=10 IOS PLC Relay
+plc10ios.menu.cpu.plc10iosr.build.extra_flags=-DPLC10IOS -DPLC10IOS_RELAY
+
+############################################
+###### ESP32 PLC ###########################
+############################################
+
+esp32plc.name=ESP32 PLC Family
+esp32plc.build.tarch=xtensa
+esp32plc.build.bootloader_addr=0x1000
+esp32plc.build.target=esp32
+esp32plc.build.mcu=esp32
+esp32plc.build.core=industrialshields
+esp32plc.build.board=ESP32_DEV
+esp32plc.build.f_cpu=240000000L
+esp32plc.build.flash_size=4MB
+esp32plc.build.flash_freq=80m
+esp32plc.build.flash_mode=dio
+esp32plc.build.boot=dio
+esp32plc.build.partitions=default
+esp32plc.build.defines=
+esp32plc.build.loop_core=
+esp32plc.build.event_core=
+esp32plc.build.defines=
+esp32plc.build.code_debug=0
+esp32plc.build.variant=esp32plc
+esp32plc.upload.tool=esptool_py
+esp32plc.upload.maximum_size=1310720
+esp32plc.upload.maximum_data_size=327680
+esp32plc.upload.wait_for_upload_port=true
+esp32plc.upload.speed=921600
+esp32plc.upload.flags=
+esp32plc.upload.extra_flags=
+esp32plc.serial.disableDTR=true
+esp32plc.serial.disableRTS=true
+
+######### ESP32 PLC CPU #######################
+
+esp32plc.menu.cpu.esp32plc=ESP32 PLC
+esp32plc.menu.cpu.esp32plc.build.extra_flags=-DESP32PLC
+
+######### ESP32 PLC 19R+ #######################
+
+esp32plc.menu.cpu.esp32plc19r=ESP32 PLC 19R IO+
+esp32plc.menu.cpu.esp32plc19r.build.extra_flags=-DESP32PLC -DESP32PLC_19R
+
+######### ESP32 PLC 21R+ #######################
+
+esp32plc.menu.cpu.esp32plc21=ESP32 PLC 21 IO+
+esp32plc.menu.cpu.esp32plc21.build.extra_flags=-DESP32PLC -DESP32PLC_21
+
+######### ESP32 PLC 38AR+ #######################
+
+esp32plc.menu.cpu.esp32plc38ar=ESP32 PLC 38AR IO+
+esp32plc.menu.cpu.esp32plc38ar.build.extra_flags=-DESP32PLC -DESP32PLC_38AR
+
+######### ESP32 PLC 38R+ #######################
+
+esp32plc.menu.cpu.esp32plc38r=ESP32 PLC 38R IO+
+esp32plc.menu.cpu.esp32plc38r.build.extra_flags=-DESP32PLC -DESP32PLC_38R
+
+######### ESP32 PLC 42+ #######################
+
+esp32plc.menu.cpu.esp32plc42=ESP32 PLC 42 IO+
+esp32plc.menu.cpu.esp32plc42.build.extra_flags=-DESP32PLC -DESP32PLC_42
+
+######### ESP32 PLC 50RRA+ #######################
+
+esp32plc.menu.cpu.esp32plc50rra=ESP32 PLC 50RRA IO+
+esp32plc.menu.cpu.esp32plc50rra.build.extra_flags=-DESP32PLC -DESP32PLC_50RRA
+
+######### ESP32 PLC 53ARR+ #######################
+
+esp32plc.menu.cpu.esp32plc53arr=ESP32 PLC 53ARR IO+
+esp32plc.menu.cpu.esp32plc53arr.build.extra_flags=-DESP32PLC -DESP32PLC_53ARR
+
+######### ESP32 PLC 54ARA+ #######################
+
+esp32plc.menu.cpu.esp32plc54ara=ESP32 PLC 54ARA IO+
+esp32plc.menu.cpu.esp32plc54ara.build.extra_flags=-DESP32PLC -DESP32PLC_54ARA
+
+######### ESP32 PLC 57AAR+ #######################
+
+esp32plc.menu.cpu.esp32plc57aar=ESP32 PLC 57AAR IO+
+esp32plc.menu.cpu.esp32plc57aar.build.extra_flags=-DESP32PLC -DESP32PLC_57AAR
+
+######### ESP32 PLC 57R+ #######################
+
+esp32plc.menu.cpu.esp32plc57r=ESP32 PLC 57R IO+
+esp32plc.menu.cpu.esp32plc57r.build.extra_flags=-DESP32PLC -DESP32PLC_57R
+
+######### ESP32 PLC 58+ #######################
+
+esp32plc.menu.cpu.esp32plc58=ESP32 PLC 58 IO+
+esp32plc.menu.cpu.esp32plc58.build.extra_flags=-DESP32PLC -DESP32PLC_58
+
+###### BOARD VERSION
+esp32plc.menu.version.v3=v3
+esp32plc.menu.version.v3.build.version_flags=-DESP32PLC_V3
+
+esp32plc.menu.version.v1=v1 (Legacy)
+esp32plc.menu.version.v1.build.version_flags=-DESP32PLC_V1
+
+###### EXTENSION MODULE 1
+esp32plc.menu.module1.none=None
+
+esp32plc.menu.module1.gprs=GPRS
+esp32plc.menu.module1.gprs.build.module1_flags=-DEXPANSION_MODULE1_GPRS
+
+###### EXTENSION MODULE 2
+esp32plc.menu.module2.none=None
+
+esp32plc.menu.module2.gprs=GPRS
+esp32plc.menu.module2.gprs.build.module2_flags=-DEXPANSION_MODULE2_GPRS
+
+############################################
+###### Wifi Module #########################
+############################################
+
+wifimodule.name=WiFi module
+wifimodule.build.tarch=xtensa
+wifimodule.build.bootloader_addr=0x1000
+wifimodule.build.target=esp32
+wifimodule.build.mcu=esp32
+wifimodule.build.core=industrialshields
+wifimodule.build.board=ESP32_DEV
+wifimodule.build.f_cpu=240000000L
+wifimodule.build.flash_size=4MB
+wifimodule.build.flash_freq=80m
+wifimodule.build.flash_mode=dio
+wifimodule.build.boot=dio
+wifimodule.build.partitions=default
+wifimodule.build.defines=
+wifimodule.build.loop_core=
+wifimodule.build.event_core=
+wifimodule.build.defines=
+wifimodule.build.code_debug=0
+wifimodule.build.variant=wifimodule
+wifimodule.build.extra_flags=-DWIFI_MODULE
+wifimodule.upload.tool=esptool_py
+wifimodule.upload.maximum_size=1310720
+wifimodule.upload.maximum_data_size=327680
+wifimodule.upload.wait_for_upload_port=true
+wifimodule.upload.speed=921600
+wifimodule.upload.flags=
+wifimodule.upload.extra_flags=
+wifimodule.serial.disableDTR=true
+wifimodule.serial.disableRTS=true
+
+

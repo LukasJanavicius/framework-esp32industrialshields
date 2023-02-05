@@ -1,0 +1,36 @@
+#ifndef __WIFI5_CONSTANTS_H__
+#define __WIFI5_CONSTANTS_H__
+
+#define WL_JOIN_RETRIES		2
+#define WL_SSID_SIZE		64
+
+typedef enum {
+	WL_NO_SHIELD = 255,
+	WL_IDLE_STATUS = 0,
+	WL_NO_SSID_AVAIL,
+	WL_SCAN_COMPLETED,
+	WL_CONNECTED,
+	WL_CONNECT_FAILED,
+	WL_CONNECTION_LOST,
+	WL_DISCONNECTED,
+	WL_AP_LISTENING,
+	WL_AP_CONNECTED,
+	WL_AP_FAILED,
+	WL_PROVISIONING,
+	WL_PROVISIONING_FAILED
+} wl_status_t;
+
+typedef enum {
+	WL_RESET_MODE = 0,
+	WL_STA_MODE,
+	WL_AP_MODE
+} wl_mode_t;
+
+typedef enum {
+	WL_SEC_TYPE_OPEN = 0,
+	WL_SEC_TYPE_WPA = 2,
+	WL_SEC_TYPE_WPA2 = 3,
+	WL_SEC_TYPE_WPA_WPA2 = 4,
+} wl_enc_type_t;
+
+#endif
